@@ -1,0 +1,8 @@
+{
+    "presets": ["es2015", "react"],
+    "plugins": [
+        "./babel.js",
+        "syntax-object-rest-spread",
+        "transform-object-rest-spread"
+    ]
+}
