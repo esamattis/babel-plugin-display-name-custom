@@ -4,8 +4,8 @@ module.exports = function (babel) {
 
     return {
         visitor: {
-            File(path) {
-                console.log("file", path);
+            Program(path) {
+                componentCreatorName = null;
             },
 
             ImportDeclaration(path) {
