@@ -10,6 +10,7 @@ describe("compile fixtures to snapshots", () => {
 
         test("compile: " + fixtureFile, () => {
             const actual = transformFileSync(__dirname + "/fixtures/" + fixtureFile, {
+                babelrc: false,
                 plugins: [__dirname + "/../plugin.js"],
             });
             expect(actual.code).toMatchSnapshot();
