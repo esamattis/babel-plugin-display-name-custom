@@ -30,6 +30,15 @@ const Foo = simple(\"div\", {
 Foo.displayName = \"Foo\";"
 `;
 
+exports[`compile fixtures to snapshots: declaration-shadow.js 1`] = `
+"import simple from \"react-simple\";
+
+function fn() {
+    const simple = () => null;
+    var no = simple();
+}"
+`;
+
 exports[`compile fixtures to snapshots: export.js 1`] = `
 "import simple from \"react-simple\";
 
