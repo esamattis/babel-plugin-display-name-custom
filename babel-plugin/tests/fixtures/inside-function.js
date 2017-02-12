@@ -7,3 +7,11 @@ function fn() {
         color: "red",
     });
 }
+
+function outer() {
+    function inner() {
+        const Foo = simple("div", {
+            color: "red",
+        });
+    }
+}
