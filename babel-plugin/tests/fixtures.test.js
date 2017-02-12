@@ -4,11 +4,11 @@ const fs = require("fs");
 const fixtures = fs.readdirSync(__dirname + "/fixtures");
 
 
-describe("compile fixtures to snapshots", () => {
+describe("compile fixtures to snapshots:", () => {
 
     fixtures.forEach(fixtureFile => {
 
-        test("compile: " + fixtureFile, () => {
+        test(fixtureFile, () => {
             const actual = transformFileSync(__dirname + "/fixtures/" + fixtureFile, {
                 babelrc: false,
                 plugins: [__dirname + "/../plugin.js"],

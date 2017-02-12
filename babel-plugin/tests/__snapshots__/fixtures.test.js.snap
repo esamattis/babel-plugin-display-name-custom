@@ -1,4 +1,51 @@
-exports[`compile fixtures to snapshots compile: alternative-name.js 1`] = `
+exports[`compile fixtures to snapshots alternative-name.js 1`] = `
+"import create from "react-simple";
+
+const Foo = create("div", {
+    color: "red"
+});
+Foo.displayName = "Foo";"
+`;
+
+exports[`compile fixtures to snapshots argument-shadow.js 1`] = `
+"import simple from "react-simple";
+
+function fn(simple) {
+    var no = simple();
+}"
+`;
+
+exports[`compile fixtures to snapshots basic.js 1`] = `
+"import simple from "react-simple";
+
+const Foo = simple("div", {
+    color: "red"
+});
+Foo.displayName = "Foo";"
+`;
+
+exports[`compile fixtures to snapshots export.js 1`] = `
+"import simple from "react-simple";
+
+export const Foo = simple("div", {
+    color: "red"
+});
+Foo.displayName = "Foo";"
+`;
+
+exports[`compile fixtures to snapshots inside-function.js 1`] = `
+"
+import simple from "react-simple";
+
+function fn() {
+    const Foo = simple("div", {
+        color: "red"
+    });
+    Foo.displayName = "Foo";
+}"
+`;
+
+exports[`compile fixtures to snapshots: alternative-name.js 1`] = `
 "import create from \"react-simple\";
 
 const Foo = create(\"div\", {
@@ -7,7 +54,7 @@ const Foo = create(\"div\", {
 Foo.displayName = \"Foo\";"
 `;
 
-exports[`compile fixtures to snapshots compile: argument-shadow.js 1`] = `
+exports[`compile fixtures to snapshots: argument-shadow.js 1`] = `
 "import simple from \"react-simple\";
 
 function fn(simple) {
@@ -15,7 +62,7 @@ function fn(simple) {
 }"
 `;
 
-exports[`compile fixtures to snapshots compile: basic.js 1`] = `
+exports[`compile fixtures to snapshots: basic.js 1`] = `
 "import simple from \"react-simple\";
 
 const Foo = simple(\"div\", {
@@ -24,7 +71,7 @@ const Foo = simple(\"div\", {
 Foo.displayName = \"Foo\";"
 `;
 
-exports[`compile fixtures to snapshots compile: export.js 1`] = `
+exports[`compile fixtures to snapshots: export.js 1`] = `
 "import simple from \"react-simple\";
 
 export const Foo = simple(\"div\", {
@@ -33,7 +80,7 @@ export const Foo = simple(\"div\", {
 Foo.displayName = \"Foo\";"
 `;
 
-exports[`compile fixtures to snapshots compile: inside-function.js 1`] = `
+exports[`compile fixtures to snapshots: inside-function.js 1`] = `
 "
 import simple from \"react-simple\";
 
