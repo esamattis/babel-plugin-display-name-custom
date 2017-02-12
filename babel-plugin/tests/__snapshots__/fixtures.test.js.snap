@@ -21,6 +21,12 @@ function outer(simple) {
 }"
 `;
 
+exports[`compile fixtures to snapshots: assignment-only.js 1`] = `
+"import simple from \"react-simple\";
+
+var no = simple;"
+`;
+
 exports[`compile fixtures to snapshots: basic.js 1`] = `
 "import simple from \"react-simple\";
 
