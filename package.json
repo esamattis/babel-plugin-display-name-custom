@@ -1,4 +1,27 @@
 {
+  "name": "react-simple",
+  "version": "0.0.1",
+  "description": "Simple style only components for React",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint src/ && jest",
+    "build": "mkdir -p lib && babel src --out-dir lib",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/epeli/react-simple"
+  },
+  "bugs": {
+    "url": "https://github.com/epeli/react-simple/issues"
+  },
+  "files": [
+    "babel.js",
+    "babel-plugin",
+    "lib"
+  ],
+  "author": "Esa-Matti Suuronen",
+  "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.22.2",
     "babel-core": "^6.22.1",
