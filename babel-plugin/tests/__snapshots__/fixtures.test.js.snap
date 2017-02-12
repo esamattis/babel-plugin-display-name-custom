@@ -1,0 +1,46 @@
+exports[`compile fixtures to snapshots compile: alternative-name.js 1`] = `
+"import create from \"react-simple\";
+
+const Foo = create(\"div\", {
+    color: \"red\"
+});
+Foo.displayName = \"Foo\";"
+`;
+
+exports[`compile fixtures to snapshots compile: argument-shadow.js 1`] = `
+"import simple from \"react-simple\";
+
+function fn(simple) {
+    var no = simple();
+}"
+`;
+
+exports[`compile fixtures to snapshots compile: basic.js 1`] = `
+"import simple from \"react-simple\";
+
+const Foo = simple(\"div\", {
+    color: \"red\"
+});
+Foo.displayName = \"Foo\";"
+`;
+
+exports[`compile fixtures to snapshots compile: export.js 1`] = `
+"import simple from \"react-simple\";
+
+export const Foo = simple(\"div\", {
+    color: \"red\"
+});
+Foo.displayName = \"Foo\";"
+`;
+
+exports[`compile fixtures to snapshots compile: inside-function.js 1`] = `
+"
+import simple from \"react-simple\";
+
+function fn() {
+    const Foo = simple(\"div\", {
+        color: \"red\"
+    });
+    Foo.displayName = \"Foo\";
+}"
+`;
