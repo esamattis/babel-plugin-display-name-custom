@@ -28,6 +28,9 @@
   },
   "globals": {
     "self": true,
+    "describe": true,
+    "test": true,
+    "expect": true,
     "Promise": true
   },
   "rules": {
