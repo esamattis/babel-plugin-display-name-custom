@@ -12,6 +12,12 @@ exports[`compile fixtures to snapshots: argument-shadow.js 1`] = `
 
 function fn(simple) {
     var no = simple();
+}
+
+function outer(simple) {
+    function inner() {
+        var no = simple();
+    }
 }"
 `;
 

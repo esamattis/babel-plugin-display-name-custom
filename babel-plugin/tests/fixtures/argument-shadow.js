@@ -4,3 +4,9 @@ function fn(simple) {
     var no = simple();
 }
 
+
+function outer(simple) {
+    function inner() {
+        var no = simple();
+    }
+}
