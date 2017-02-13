@@ -1,6 +1,6 @@
 {
   "name": "react-simple",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Simple style only components for React",
   "main": "./lib/simple",
   "scripts": {
