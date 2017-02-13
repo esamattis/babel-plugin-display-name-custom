@@ -3,7 +3,8 @@ const {dirname, resolve} = require("path");
 const isLocal = s => s.trim()[0] === ".";
 
 
-module.exports = function (babel) {
+const createPlugin = (defaultOptions={}) => babel => {
+
     const {types: t} = babel;
     var componentCreatorNames = null;
 
@@ -15,7 +16,9 @@ module.exports = function (babel) {
     };
 
     const isIsComponentCreator = (importedName, path, state) => {
-        const modules = state.opts || {};
+        var modules = state.opts.modules;
+
+        modules = Object.assign({}, defaultOptions.modules, modules);
 
         const importDeclaration = path.findParent(p => t.isImportDeclaration(p.node));
         const moduleString = importDeclaration.node.source.value;
@@ -105,3 +108,6 @@ module.exports = function (babel) {
     };
 };
 
+const plugin = createPlugin();
+plugin.createPlugin = createPlugin;
+module.exports = plugin;

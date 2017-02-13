@@ -1,4 +1,4 @@
-// {"other": {"default": true}}
+// {"modules": {"other": {"default": true}}}
 import createComponent from "other";
 
 const Foo = createComponent("div", {

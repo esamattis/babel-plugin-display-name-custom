@@ -1,4 +1,4 @@
-// {"amodule": {"createComponent": true}}
+// {"modules": {"amodule": {"createComponent": true}}}
 import noDefault, {createComponent, no} from "amodule";
 
 const Foo = createComponent("div", {

@@ -2,7 +2,12 @@
     "presets": ["es2015", "react"],
     "plugins": [
         ["./plugin.js", {
-            "./demo/create": {"createComponent": true, "default": true}
+            "modules": {
+                "./demo/create": {
+                    "createComponent": true,
+                    "default": true
+                }
+            }
         }],
         "syntax-object-rest-spread",
         "transform-object-rest-spread"
