@@ -98,6 +98,30 @@ function outer() {
 }"
 `;
 
+exports[`compile fixtures to snapshots: local-default-export.js 1`] = `
+"// {\"modules\": {\"./tests/fixtures/local\": {\"default\": true}}}
+import createComponent, { no } from \"./local\";
+
+const Foo = createComponent(\"div\", {
+    color: \"red\"
+});
+
+Foo.displayName = \"Foo\";
+var nope = no();"
+`;
+
+exports[`compile fixtures to snapshots: local-named-export.js 1`] = `
+"// {\"modules\": {\"./tests/fixtures/local\": {\"createComponent\": true}}}
+import { createComponent as other, no } from \"./local\";
+
+const Foo = other(\"div\", {
+    color: \"red\"
+});
+
+Foo.displayName = \"Foo\";
+var nope = no();"
+`;
+
 exports[`compile fixtures to snapshots: named-export.js 1`] = `
 "// {\"modules\": {\"amodule\": {\"createComponent\": true}}}
 import noDefault, { createComponent, no } from \"amodule\";
