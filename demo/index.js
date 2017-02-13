@@ -8,13 +8,17 @@ import {Blue} from "./other";
 
 const Red = simple("div", {
     color: "red",
+}, {
+    border: {
+        border: "1px solid orange",
+    }
 });
 
 
 const Root = () => (
     <div>
         <Red>red</Red>
-        <Red>red 2</Red>
+        <Red border>red with border</Red>
         <Blue>blue</Blue>
     </div>
 );
