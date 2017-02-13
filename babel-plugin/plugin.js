@@ -1,8 +1,40 @@
 const {dirname, resolve} = require("path");
 
+const isLocal = s => s.trim()[0] === ".";
+
+
 module.exports = function (babel) {
     const {types: t} = babel;
     var componentCreatorNames = null;
+
+    const addCreatorName = name => {
+        if (!componentCreatorNames) {
+            componentCreatorNames = {};
+        }
+        componentCreatorNames[name] = true;
+    };
+
+    const isIsComponentCreator = (importedName, path, state) => {
+        const modules = state.opts || {};
+
+        const importDeclaration = path.findParent(p => t.isImportDeclaration(p.node));
+        const moduleString = importDeclaration.node.source.value;
+
+        if (!isLocal(moduleString)) {
+            return modules[moduleString] && modules[moduleString][importedName];
+        }
+
+        const sourcePath = resolve(dirname(state.file.opts.filename), moduleString);
+
+        const localModuleString = Object.keys(modules).find(configPath => {
+            if (isLocal(configPath)) {
+                const fullConfigPath = resolve(state.file.opts.sourceRoot, configPath);
+                return fullConfigPath === sourcePath;
+            }
+        });
+
+        return modules[localModuleString] && modules[localModuleString][importedName];
+    }
 
     return {
         visitor: {
@@ -10,59 +42,16 @@ module.exports = function (babel) {
                 componentCreatorNames = null;
             },
 
-            ImportDefaultSpecifier(path, state) {
-                const modules = state.opts || {};
-
-                const importDeclaration = path.findParent(p => t.isImportDeclaration(p.node));
-
-                const componentCreatorExports = modules[importDeclaration.node.source.value];
-
-                if (!componentCreatorExports) return;
-                if (!componentCreatorExports.default) return;
-
-
-
-                if (!componentCreatorNames) {
-                    componentCreatorNames = {};
+            ImportSpecifier(path, state) {
+                if (isIsComponentCreator(path.node.imported.name, path, state)) {
+                    addCreatorName(path.node.local.name);
                 }
-
-                componentCreatorNames[path.node.local.name] = true;
             },
 
-            ImportSpecifier(path, state) {
-                const modules = state.opts || {};
-
-                const importDeclaration = path.findParent(p => t.isImportDeclaration(p.node));
-                const importString = importDeclaration.node.source.value;
-
-                const isLocal = importString[0] === ".";
-
-                var componentCreatorExports = null;
-
-                if (isLocal) {
-                    const sourcePath = resolve(dirname(state.file.opts.filename), importString);
-
-                    const key = Object.keys(modules).find(configPath => {
-                        if (configPath[0] === ".") {
-                            const fullConfigPath = resolve(state.file.opts.sourceRoot, configPath);
-                            return fullConfigPath === sourcePath;
-                        }
-                    });
-
-                    componentCreatorExports = modules[key];
-                } else {
-                    componentCreatorExports = modules[importString];
+            ImportDefaultSpecifier(path, state) {
+                if (isIsComponentCreator("default", path, state)) {
+                    addCreatorName(path.node.local.name);
                 }
-
-                if (!componentCreatorExports) return;
-
-                if (!componentCreatorExports[path.node.imported.name]) return;
-
-                if (!componentCreatorNames) {
-                    componentCreatorNames = {};
-                }
-
-                componentCreatorNames[path.node.local.name] = true;
             },
 
             VariableDeclaration(path) {
