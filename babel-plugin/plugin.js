@@ -34,7 +34,7 @@ module.exports = function (babel) {
         });
 
         return modules[localModuleString] && modules[localModuleString][importedName];
-    }
+    };
 
     return {
         visitor: {
@@ -65,7 +65,6 @@ module.exports = function (babel) {
                 if (!componentCreatorNames[creatorName]) return;
 
                 var scope = path.scope;
-
                 var usingImportedCreator = false;
 
                 while (scope) {
@@ -79,9 +78,8 @@ module.exports = function (babel) {
                 if (!usingImportedCreator) return;
 
 
-                var name = path.node.declarations[0].id.name;
+                const name = path.node.declarations[0].id.name;
 
-                var left = t.memberExpression(t.identifier(name), t.identifier("displayName"));
 
                 var sibling = path;
 
@@ -89,12 +87,15 @@ module.exports = function (babel) {
                     sibling = path.findParent(p => p.node === path.parent);
                 }
 
+                const left = t.memberExpression(t.identifier(name), t.identifier("displayName"));
+                const right = t.stringLiteral(name);
+
                 sibling.insertAfter(
                     t.expressionStatement(
                         t.assignmentExpression(
                             "=",
                             left,
-                            t.stringLiteral(name)
+                            right
                         )
                     )
                 );
