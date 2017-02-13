@@ -2,7 +2,7 @@
   "name": "react-simple",
   "version": "0.0.1",
   "description": "Simple style only components for React",
-  "main": "index.js",
+  "main": "./lib/simple",
   "scripts": {
     "test": "eslint src/ && jest",
     "build": "mkdir -p lib && babel src --out-dir lib",
