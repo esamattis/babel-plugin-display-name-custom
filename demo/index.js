@@ -1,25 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import simple from "react-simple";
-
-import {Blue} from "./other";
+import defaultCreate, {createComponent} from "./create";
 
 
-const Red = simple("div", {
-    color: "red",
-}, {
-    border: {
-        border: "1px solid orange",
-    }
+const Blue = createComponent("div", {
+    color: "blue",
 });
 
+const Orange = defaultCreate("div", {
+    color: "orange",
+});
 
 const Root = () => (
     <div>
-        <Red>red</Red>
-        <Red border>red with border</Red>
-        <Blue>blue</Blue>
+        <Blue>using createComponent</Blue>
+        <Orange>using default export</Orange>
     </div>
 );
 

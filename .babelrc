@@ -1,7 +1,9 @@
 {
     "presets": ["es2015", "react"],
     "plugins": [
-        "./babel.js",
+        ["./plugin.js", {
+            "./demo/create": {"createComponent": true, "default": true}
+        }],
         "syntax-object-rest-spread",
         "transform-object-rest-spread"
     ]

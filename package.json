@@ -1,24 +1,20 @@
 {
-  "name": "react-simple",
-  "version": "0.0.3",
-  "description": "Simple style only components for React",
-  "main": "./lib/simple",
+  "name": "babel-plugin-display-name-custom",
+  "version": "1.0.0",
+  "description": "React display name inference for custom component creators",
+  "main": "./plugin",
   "scripts": {
-    "test": "eslint src/ && jest",
-    "build": "mkdir -p lib && babel src --out-dir lib",
-    "prepublish": "npm run build"
+    "test": "eslint plugin.js && jest"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/epeli/react-simple"
+    "url": "https://github.com/epeli/babel-plugin-display-name-custom"
   },
   "bugs": {
-    "url": "https://github.com/epeli/react-simple/issues"
+    "url": "https://github.com/epeli/babel-plugin-display-name-custom/issues"
   },
   "files": [
-    "babel.js",
-    "babel-plugin",
-    "lib"
+    "plugin.js"
   ],
   "author": "Esa-Matti Suuronen",
   "license": "MIT",
@@ -40,10 +36,5 @@
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.3.0"
   },
-  "dependencies": {
-    "classnames": "^2.2.5",
-    "deepmerge": "^1.3.2",
-    "glamor": "^2.20.22",
-    "lodash": "^4.17.4"
-  }
+  "dependencies": {}
 }
