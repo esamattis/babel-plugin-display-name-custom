@@ -13,7 +13,6 @@ describe("compile fixtures to snapshots:", () => {
 
             const lines = fs.readFileSync(__dirname + "/fixtures/" + fixtureFile).toString().split("\n");
 
-            console.log(lines[0].slice(2).trim());
             const options = JSON.parse(lines[0].slice(2).trim());
 
             const output = babel.transform(lines.slice(1).join("\n"), {

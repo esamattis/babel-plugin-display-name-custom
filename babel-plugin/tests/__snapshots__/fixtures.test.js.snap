@@ -36,6 +36,15 @@ const Foo = simple(\"div\", {
 Foo.displayName = \"Foo\";"
 `;
 
+exports[`compile fixtures to snapshots: custom.js 1`] = `
+"import createComponent from \"other\";
+
+const Foo = createComponent(\"div\", {
+    color: \"red\"
+});
+Foo.displayName = \"Foo\";"
+`;
+
 exports[`compile fixtures to snapshots: declaration-shadow.js 1`] = `
 "import simple from \"react-simple\";
 

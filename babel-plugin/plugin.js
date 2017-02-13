@@ -8,14 +8,23 @@ module.exports = function (babel) {
                 componentCreatorNames = null;
             },
 
-            ImportDeclaration(path) {
-                if (path.node.source.value !== "react-simple") return;
+            ImportDefaultSpecifier(path, state) {
+                const modules = state.opts || {};
+
+                const importDeclaration = path.findParent(p => t.isImportDeclaration(p.node));
+
+                const componentCreatorExports = modules[importDeclaration.node.source.value];
+
+                if (!componentCreatorExports) return;
+                if (!componentCreatorExports.default) return;
+
+
+
                 if (!componentCreatorNames) {
                     componentCreatorNames = {};
                 }
 
-                componentCreatorNames[path.node.specifiers[0].local.name] = true;
-
+                componentCreatorNames[path.node.local.name] = true;
             },
 
             VariableDeclaration(path) {
