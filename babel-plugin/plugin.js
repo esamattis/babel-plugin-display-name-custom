@@ -36,6 +36,8 @@ module.exports = function (babel) {
 
                 if (!componentCreatorExports) return;
 
+                if (!componentCreatorExports[path.node.imported.name]) return;
+
                 if (!componentCreatorNames) {
                     componentCreatorNames = {};
                 }
