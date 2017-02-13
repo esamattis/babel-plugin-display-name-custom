@@ -42,7 +42,7 @@ module.exports = function (babel) {
                     componentCreatorNames = {};
                 }
 
-                componentCreatorNames[path.node.imported.name] = true;
+                componentCreatorNames[path.node.local.name] = true;
             },
 
             VariableDeclaration(path) {

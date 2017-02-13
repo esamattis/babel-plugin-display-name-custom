@@ -100,3 +100,14 @@ const Foo = createComponent(\"div\", {
 Foo.displayName = \"Foo\";
 var nope = no();"
 `;
+
+exports[`compile fixtures to snapshots: named-export-as.js 1`] = `
+"import { createComponent as other, no } from \"amodule\";
+
+const Foo = other(\"div\", {
+    color: \"red\"
+});
+
+Foo.displayName = \"Foo\";
+var nope = no();"
+`;
