@@ -10,12 +10,13 @@ describe("compile fixtures to snapshots:", () => {
 
         test(fixtureFile, () => {
 
+            const filePath = __dirname + "/fixtures/" + fixtureFile;
 
-            const lines = fs.readFileSync(__dirname + "/fixtures/" + fixtureFile).toString().split("\n");
+            const lines = fs.readFileSync(filePath).toString().split("\n");
 
             const options = JSON.parse(lines[0].slice(2).trim());
 
-            const output = babel.transform(lines.slice(1).join("\n"), {
+            const output = babel.transformFileSync(filePath, {
                 babelrc: false,
                 plugins: [
                     [__dirname + "/../plugin.js", options],

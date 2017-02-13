@@ -1,5 +1,6 @@
 exports[`compile fixtures to snapshots: alternative-name.js 1`] = `
-"import create from \"react-simple\";
+"// {\"modules\": {\"react-simple\": {\"default\": true}}}
+import create from \"react-simple\";
 
 const Foo = create(\"div\", {
     color: \"red\"
@@ -8,7 +9,8 @@ Foo.displayName = \"Foo\";"
 `;
 
 exports[`compile fixtures to snapshots: argument-shadow.js 1`] = `
-"import simple from \"react-simple\";
+"// {\"react-simple\": {\"default\": true}}
+import simple from \"react-simple\";
 
 function fn(simple) {
     var no = simple();
@@ -22,13 +24,15 @@ function outer(simple) {
 `;
 
 exports[`compile fixtures to snapshots: assignment-only.js 1`] = `
-"import simple from \"react-simple\";
+"// {\"react-simple\": {\"default\": true}}
+import simple from \"react-simple\";
 
 var no = simple;"
 `;
 
 exports[`compile fixtures to snapshots: basic.js 1`] = `
-"import simple from \"react-simple\";
+"// {\"modules\": {\"react-simple\": {\"default\": true}}}
+import simple from \"react-simple\";
 
 const Foo = simple(\"div\", {
     color: \"red\"
@@ -37,7 +41,8 @@ Foo.displayName = \"Foo\";"
 `;
 
 exports[`compile fixtures to snapshots: custom.js 1`] = `
-"import createComponent from \"other\";
+"// {\"modules\": {\"other\": {\"default\": true}}}
+import createComponent from \"other\";
 
 const Foo = createComponent(\"div\", {
     color: \"red\"
@@ -46,7 +51,8 @@ Foo.displayName = \"Foo\";"
 `;
 
 exports[`compile fixtures to snapshots: declaration-shadow.js 1`] = `
-"import simple from \"react-simple\";
+"// {\"react-simple\": {\"default\": true}}
+import simple from \"react-simple\";
 
 function fn() {
     const simple = () => null;
@@ -62,7 +68,8 @@ function outer() {
 `;
 
 exports[`compile fixtures to snapshots: export.js 1`] = `
-"import simple from \"react-simple\";
+"// {\"modules\": {\"react-simple\": {\"default\": true}}}
+import simple from \"react-simple\";
 
 export const Foo = simple(\"div\", {
     color: \"red\"
@@ -71,7 +78,8 @@ Foo.displayName = \"Foo\";"
 `;
 
 exports[`compile fixtures to snapshots: inside-function.js 1`] = `
-"import simple from \"react-simple\";
+"// {\"modules\": {\"react-simple\": {\"default\": true}}}
+import simple from \"react-simple\";
 
 function fn() {
     const Foo = simple(\"div\", {
@@ -91,7 +99,8 @@ function outer() {
 `;
 
 exports[`compile fixtures to snapshots: named-export.js 1`] = `
-"import noDefault, { createComponent, no } from \"amodule\";
+"// {\"modules\": {\"amodule\": {\"createComponent\": true}}}
+import noDefault, { createComponent, no } from \"amodule\";
 
 const Foo = createComponent(\"div\", {
     color: \"red\"
@@ -103,7 +112,8 @@ var nope = no();"
 `;
 
 exports[`compile fixtures to snapshots: named-export-as.js 1`] = `
-"import { createComponent as other, no } from \"amodule\";
+"// {\"modules\": {\"amodule\": {\"createComponent\": true}}}
+import { createComponent as other, no } from \"amodule\";
 
 const Foo = other(\"div\", {
     color: \"red\"

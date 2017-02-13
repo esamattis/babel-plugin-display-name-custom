@@ -28,10 +28,11 @@ const createPlugin = (defaultOptions={}) => babel => {
         }
 
         const sourcePath = resolve(dirname(state.file.opts.filename), moduleString);
+        const sourceRoot = state.file.opts.sourceRoot || process.cwd();
 
         const localModuleString = Object.keys(modules).find(configPath => {
             if (isLocal(configPath)) {
-                const fullConfigPath = resolve(state.file.opts.sourceRoot, configPath);
+                const fullConfigPath = resolve(sourceRoot, configPath);
                 return fullConfigPath === sourcePath;
             }
         });
