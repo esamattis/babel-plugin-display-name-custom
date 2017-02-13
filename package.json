@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-display-name-custom",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Display name inference for custom React component creators",
   "main": "./plugin",
   "scripts": {
