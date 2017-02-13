@@ -1,3 +1,5 @@
+const {dirname, resolve} = require("path");
+
 module.exports = function (babel) {
     const {types: t} = babel;
     var componentCreatorNames = null;
@@ -31,8 +33,26 @@ module.exports = function (babel) {
                 const modules = state.opts || {};
 
                 const importDeclaration = path.findParent(p => t.isImportDeclaration(p.node));
+                const importString = importDeclaration.node.source.value;
 
-                const componentCreatorExports = modules[importDeclaration.node.source.value];
+                const isLocal = importString[0] === ".";
+
+                var componentCreatorExports = null;
+
+                if (isLocal) {
+                    const sourcePath = resolve(dirname(state.file.opts.filename), importString);
+
+                    const key = Object.keys(modules).find(configPath => {
+                        if (configPath[0] === ".") {
+                            const fullConfigPath = resolve(state.file.opts.sourceRoot, configPath);
+                            return fullConfigPath === sourcePath;
+                        }
+                    });
+
+                    componentCreatorExports = modules[key];
+                } else {
+                    componentCreatorExports = modules[importString];
+                }
 
                 if (!componentCreatorExports) return;
 
