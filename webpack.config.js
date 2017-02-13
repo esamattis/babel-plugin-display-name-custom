@@ -12,7 +12,7 @@ var config = {
     devtool: "sourceMap",
     resolve: {
         alias: {
-            "react-simple$": path.resolve(__dirname, "index.js"),
+            "react-simple$": path.resolve(__dirname, "src/simple.js"),
         },
     },
     module: {
