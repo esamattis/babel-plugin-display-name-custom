@@ -89,3 +89,12 @@ function outer() {
     }
 }"
 `;
+
+exports[`compile fixtures to snapshots: named-export.js 1`] = `
+"import { createComponent } from \"amodule\";
+
+const Foo = createComponent(\"div\", {
+    color: \"red\"
+});
+Foo.displayName = \"Foo\";"
+`;

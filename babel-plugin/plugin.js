@@ -27,6 +27,22 @@ module.exports = function (babel) {
                 componentCreatorNames[path.node.local.name] = true;
             },
 
+            ImportSpecifier(path, state) {
+                const modules = state.opts || {};
+
+                const importDeclaration = path.findParent(p => t.isImportDeclaration(p.node));
+
+                const componentCreatorExports = modules[importDeclaration.node.source.value];
+
+                if (!componentCreatorExports) return;
+
+                if (!componentCreatorNames) {
+                    componentCreatorNames = {};
+                }
+
+                componentCreatorNames[path.node.imported.name] = true;
+            },
+
             VariableDeclaration(path) {
                 if (!componentCreatorNames) return;
 
