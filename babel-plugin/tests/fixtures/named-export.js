@@ -1,9 +1,10 @@
 // {"amodule": {"createComponent": true}}
-import {createComponent, no} from "amodule";
+import noDefault, {createComponent, no} from "amodule";
 
 const Foo = createComponent("div", {
     color: "red",
 });
 
 
+var nopeDefault = noDefault();
 var nope = no();

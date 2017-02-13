@@ -91,13 +91,14 @@ function outer() {
 `;
 
 exports[`compile fixtures to snapshots: named-export.js 1`] = `
-"import { createComponent, no } from \"amodule\";
+"import noDefault, { createComponent, no } from \"amodule\";
 
 const Foo = createComponent(\"div\", {
     color: \"red\"
 });
 
 Foo.displayName = \"Foo\";
+var nopeDefault = noDefault();
 var nope = no();"
 `;
 
