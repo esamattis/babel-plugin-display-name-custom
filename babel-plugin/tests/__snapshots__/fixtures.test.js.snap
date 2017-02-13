@@ -62,8 +62,7 @@ Foo.displayName = \"Foo\";"
 `;
 
 exports[`compile fixtures to snapshots: inside-function.js 1`] = `
-"
-import simple from \"react-simple\";
+"import simple from \"react-simple\";
 
 function fn() {
     const Foo = simple(\"div\", {
