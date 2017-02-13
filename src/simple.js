@@ -16,7 +16,13 @@ function getDisplayName(Component) {
     return Component.displayName || Component.name || "Anonymous";
 }
 
+var compnentCounter = 0;
+
 function simple(Component, styles, alts={}, options={}) {
+    const num = compnentCounter++;
+    const makeDebugClass = className => className
+            ? className + "___" + num
+            : null;
 
     const level = options._level || 0;
 
@@ -52,13 +58,10 @@ function simple(Component, styles, alts={}, options={}) {
 
         const rule = rules[alt[0] || "__base"];
 
-        const debugClass = StyleWrapped.displayName
-            ? StyleWrapped.displayName + "___"
-            : `simple-${level}-${getDisplayName(Component)}`;
 
         const props = {
             ...passProps,
-            className: cn(debugClass, (alt[0] && "alt-" + alt[0]), className, String(rule)),
+            className: cn(makeDebugClass(StyleWrapped.displayName), makeDebugClass(alt[0]), className, String(rule)),
         };
 
         return <Component {...props} />;
