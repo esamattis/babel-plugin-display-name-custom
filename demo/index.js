@@ -1,26 +1,31 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import defaultCreate, {createComponent} from "./create";
+import {createComponent} from "./create";
 
+const Container = createComponent("div", {
+    border: "1px solid black",
+});
+
+const Red = createComponent("div", {
+    color: "red",
+});
+
+const Green = createComponent("div", {
+    color: "green",
+});
 
 const Blue = createComponent("div", {
     color: "blue",
 });
 
-const Orange = defaultCreate("div", {
-    color: "orange",
-});
-
 const Root = () => (
-    <div>
-        <Blue>using createComponent</Blue>
-        <Orange>using default export</Orange>
-    </div>
+    <Container>
+        <Red>red</Red>
+        <Green>green</Green>
+        <Blue>blue</Blue>
+    </Container>
 );
-
 
 const el = document.getElementById("app");
 ReactDOM.render(<Root />, el);
-
-
