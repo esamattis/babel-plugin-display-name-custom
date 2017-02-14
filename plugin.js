@@ -13,7 +13,7 @@ const createPlugin = (defaultOptions = {}) => babel => {
         componentCreatorNames[name] = true;
     };
 
-    const isIsComponentCreator = (importedName, path, state) => {
+    const isComponentCreator = (importedName, path, state) => {
         var modules = state.opts.modules;
 
         modules = Object.assign({}, defaultOptions.modules, modules);
@@ -45,13 +45,13 @@ const createPlugin = (defaultOptions = {}) => babel => {
             },
 
             ImportSpecifier(path, state) {
-                if (isIsComponentCreator(path.node.imported.name, path, state)) {
+                if (isComponentCreator(path.node.imported.name, path, state)) {
                     addCreatorName(path.node.local.name);
                 }
             },
 
             ImportDefaultSpecifier(path, state) {
-                if (isIsComponentCreator("default", path, state)) {
+                if (isComponentCreator("default", path, state)) {
                     addCreatorName(path.node.local.name);
                 }
             },
