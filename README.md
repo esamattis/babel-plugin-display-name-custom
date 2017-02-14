@@ -42,7 +42,7 @@ const Root = () => (
 
 
 
-# Usage
+# usage
 
 install
 
