@@ -1,14 +1,16 @@
 # babel-plugin-display-name-custom
 
-Display name inference for your custom React component creators.
+display name inference for your custom react component creators
 
-So instead of
+so that instead of
 
 ![unknown](https://raw.githubusercontent.com/epeli/babel-plugin-display-name-custom/master/assets/unknown.png)
 
 you could see 
 
 ![unknown](https://raw.githubusercontent.com/epeli/babel-plugin-display-name-custom/master/assets/displayname.png)
+
+in [React Developer Tools](https://github.com/facebook/react-devtools)
 
 for code like
 
@@ -40,15 +42,15 @@ const Root = () => (
 );
 ```
 
-in [React devtools](https://github.com/facebook/react-devtools).
+
 
 # Usage
 
-Install with yarn
+install with yarn
 
     yarn add babel-plugin-display-name-custom
 
-and add `display-name-custom` to your `.babelrc`
+add `display-name-custom` to your `.babelrc`
 
 ```json
 {
@@ -152,6 +154,6 @@ and your users then can use it with just
 }
 ```
 
-checkout [react-simple][] for a real world example
+Checkout [react-simple][] for a real world example
 
 [react-simple]: https://github.com/epeli/react-simple
