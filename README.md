@@ -10,9 +10,7 @@ you could see
 
 ![unknown](https://raw.githubusercontent.com/epeli/babel-plugin-display-name-custom/master/assets/displayname.png)
 
-in [React Developer Tools](https://github.com/facebook/react-devtools)
-
-for code like
+in React Developer Tools for code like
 
 ```js
 import {createComponent} from "./create";
@@ -46,11 +44,11 @@ const Root = () => (
 
 # Usage
 
-install with yarn
+install
 
     yarn add babel-plugin-display-name-custom
 
-add `display-name-custom` to your `.babelrc`
+add `display-name-custom` to `.babelrc`
 
 ```json
 {
@@ -104,7 +102,7 @@ The default export can be added using the `default` keyword
 }
 ```
 
-# How it works
+# how it works?
 
 After the plugin is configured it knows which functions return new React components.
 Using that information it scans your source code for variable declarations which are initialized
@@ -128,7 +126,7 @@ const Red = createComponent("div", {
 Red.displayName = "Red";
 ```
 
-# Library author?
+# library author?
 
 For library authors the plugin also exports a `createPlugin` factory
 for generating preconfigured library specific display name plugins.
