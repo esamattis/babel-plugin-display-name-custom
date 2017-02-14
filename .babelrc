@@ -4,8 +4,7 @@
         ["./plugin.js", {
             "modules": {
                 "./demo/create": {
-                    "createComponent": true,
-                    "default": true
+                    "createComponent": true
                 }
             }
         }],
