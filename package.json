@@ -1,7 +1,7 @@
 {
   "name": "babel-plugin-display-name-custom",
   "version": "0.1.1",
-  "description": "Display name inference for custom React component creators",
+  "description": "Display name inference for your custom React component creators.",
   "main": "./plugin",
   "scripts": {
     "test": "eslint plugin.js && jest"
