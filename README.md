@@ -125,3 +125,33 @@ const Red = createComponent("div", {
 });
 Red.displayName = "Red";
 ```
+
+# Library author?
+
+For library authors the plugin also exports a `createPlugin` factory
+for generating preconfigured library specific display name plugins.
+
+Just add `babel.js` to the root of your npm module with contents like
+
+```js
+module.exports = require("babel-plugin-display-name-custom").createPlugin({
+    modules: {
+        "mylib": {createComponent: true},
+    },
+});
+```
+
+and your users then can use it with just
+
+```json
+{
+    "presets": ["es2015", "react"],
+    "plugins": [
+        "mylib/babel"
+    ]
+}
+```
+
+checkout [react-simple][] for a real world example
+
+[react-simple]: https://github.com/epeli/react-simple
