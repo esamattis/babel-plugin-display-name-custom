@@ -2,9 +2,7 @@ const {dirname, resolve} = require("path");
 
 const isLocal = s => s.trim()[0] === ".";
 
-
-const createPlugin = (defaultOptions={}) => babel => {
-
+const createPlugin = (defaultOptions = {}) => babel => {
     const {types: t} = babel;
     var componentCreatorNames = null;
 
@@ -81,9 +79,7 @@ const createPlugin = (defaultOptions={}) => babel => {
 
                 if (!usingImportedCreator) return;
 
-
                 const name = path.node.declarations[0].id.name;
-
 
                 var sibling = path;
 
@@ -95,15 +91,8 @@ const createPlugin = (defaultOptions={}) => babel => {
                 const right = t.stringLiteral(name);
 
                 sibling.insertAfter(
-                    t.expressionStatement(
-                        t.assignmentExpression(
-                            "=",
-                            left,
-                            right
-                        )
-                    )
+                    t.expressionStatement(t.assignmentExpression("=", left, right)),
                 );
-
             },
         },
     };
