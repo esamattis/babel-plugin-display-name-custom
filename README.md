@@ -40,7 +40,7 @@ const Root = () => (
 );
 ```
 
-
+For background read this https://medium.com/@esamatti/improving-component-names-in-react-developer-tools-4894247510c5#.tuw8mnbjj
 
 # usage
 
