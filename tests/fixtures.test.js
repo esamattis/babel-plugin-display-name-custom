@@ -17,7 +17,7 @@ describe("compile fixtures to snapshots:", () => {
                 plugins: [[__dirname + "/../plugin.js", options]]
             });
 
-            expect(output.code).toMatchSnapshot();
+            expect(output.code).toMatchSnapshot(fixtureFile);
         });
     });
 });

@@ -1,4 +1,4 @@
-exports[`compile fixtures to snapshots: alternative-name.js 1`] = `
+exports[`alternative-name.js 1`] = `
 "// {\"modules\": {\"react-simple\": {\"default\": true}}}
 import create from \"react-simple\";
 
@@ -8,7 +8,7 @@ const Foo = create(\"div\", {
 Foo.displayName = \"Foo\";"
 `;
 
-exports[`compile fixtures to snapshots: argument-shadow.js 1`] = `
+exports[`argument-shadow.js 1`] = `
 "// {\"react-simple\": {\"default\": true}}
 import simple from \"react-simple\";
 
@@ -23,14 +23,14 @@ function outer(simple) {
 }"
 `;
 
-exports[`compile fixtures to snapshots: assignment-only.js 1`] = `
+exports[`assignment-only.js 1`] = `
 "// {\"react-simple\": {\"default\": true}}
 import simple from \"react-simple\";
 
 var no = simple;"
 `;
 
-exports[`compile fixtures to snapshots: basic.js 1`] = `
+exports[`basic.js 1`] = `
 "// {\"modules\": {\"react-simple\": {\"default\": true}}}
 import simple from \"react-simple\";
 
@@ -40,7 +40,7 @@ const Foo = simple(\"div\", {
 Foo.displayName = \"Foo\";"
 `;
 
-exports[`compile fixtures to snapshots: custom.js 1`] = `
+exports[`custom.js 1`] = `
 "// {\"modules\": {\"other\": {\"default\": true}}}
 import createComponent from \"other\";
 
@@ -50,7 +50,7 @@ const Foo = createComponent(\"div\", {
 Foo.displayName = \"Foo\";"
 `;
 
-exports[`compile fixtures to snapshots: declaration-shadow.js 1`] = `
+exports[`declaration-shadow.js 1`] = `
 "// {\"react-simple\": {\"default\": true}}
 import simple from \"react-simple\";
 
@@ -67,7 +67,7 @@ function outer() {
 }"
 `;
 
-exports[`compile fixtures to snapshots: export.js 1`] = `
+exports[`export.js 1`] = `
 "// {\"modules\": {\"react-simple\": {\"default\": true}}}
 import simple from \"react-simple\";
 
@@ -77,7 +77,7 @@ export const Foo = simple(\"div\", {
 Foo.displayName = \"Foo\";"
 `;
 
-exports[`compile fixtures to snapshots: inside-function.js 1`] = `
+exports[`inside-function.js 1`] = `
 "// {\"modules\": {\"react-simple\": {\"default\": true}}}
 import simple from \"react-simple\";
 
@@ -98,7 +98,7 @@ function outer() {
 }"
 `;
 
-exports[`compile fixtures to snapshots: local-default-export.js 1`] = `
+exports[`local-default-export.js 1`] = `
 "// {\"modules\": {\"./tests/fixtures/local\": {\"default\": true}}}
 import createComponent, { no } from \"./local\";
 
@@ -110,7 +110,7 @@ Foo.displayName = \"Foo\";
 var nope = no();"
 `;
 
-exports[`compile fixtures to snapshots: local-named-export.js 1`] = `
+exports[`local-named-export.js 1`] = `
 "// {\"modules\": {\"./tests/fixtures/local\": {\"createComponent\": true}}}
 import { createComponent as other, no } from \"./local\";
 
@@ -122,7 +122,7 @@ Foo.displayName = \"Foo\";
 var nope = no();"
 `;
 
-exports[`compile fixtures to snapshots: named-export.js 1`] = `
+exports[`named-export.js 1`] = `
 "// {\"modules\": {\"amodule\": {\"createComponent\": true}}}
 import noDefault, { createComponent, no } from \"amodule\";
 
@@ -135,7 +135,7 @@ var nopeDefault = noDefault();
 var nope = no();"
 `;
 
-exports[`compile fixtures to snapshots: named-export-as.js 1`] = `
+exports[`named-export-as.js 1`] = `
 "// {\"modules\": {\"amodule\": {\"createComponent\": true}}}
 import { createComponent as other, no } from \"amodule\";
 
