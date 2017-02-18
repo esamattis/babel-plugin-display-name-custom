@@ -3,13 +3,9 @@ const fs = require("fs");
 
 const fixtures = fs.readdirSync(__dirname + "/fixtures");
 
-
 describe("compile fixtures to snapshots:", () => {
-
     fixtures.forEach(fixtureFile => {
-
         test(fixtureFile, () => {
-
             const filePath = __dirname + "/fixtures/" + fixtureFile;
 
             const lines = fs.readFileSync(filePath).toString().split("\n");
@@ -18,14 +14,10 @@ describe("compile fixtures to snapshots:", () => {
 
             const output = babel.transformFileSync(filePath, {
                 babelrc: false,
-                plugins: [
-                    [__dirname + "/../plugin.js", options],
-                ],
+                plugins: [[__dirname + "/../plugin.js", options]]
             });
 
             expect(output.code).toMatchSnapshot();
         });
-
     });
-
 });

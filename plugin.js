@@ -93,8 +93,8 @@ const createPlugin = (defaultOptions = {}) => babel => {
                 sibling.insertAfter(
                     t.expressionStatement(t.assignmentExpression("=", left, right))
                 );
-            },
-        },
+            }
+        }
     };
 };
 
