@@ -1,5 +1,7 @@
 # babel-plugin-display-name-custom
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/epeli/babel-plugin-display-name-custom.svg)](https://greenkeeper.io/)
+
 display name inference for your custom react component creators
 
 so that instead of
